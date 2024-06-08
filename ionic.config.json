@@ -1,0 +1,7 @@
+{
+  "name": "Na-Italy-3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
