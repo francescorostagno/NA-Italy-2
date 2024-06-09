@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{'JUSTFORTODAY' | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="englishjft">
+    <ion-card>
+      <ion-card-content>
+        <div  [innerHtml]="englishjft"></div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="jft">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{jft[0].title}}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <div [innerHtml]="jft[0].content"></div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

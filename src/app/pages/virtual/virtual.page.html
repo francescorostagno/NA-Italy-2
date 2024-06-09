@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{'VIRTMEETINGLIST' | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf = "isLoaded">
+    <app-meeting-list [data]="meetingListArea" meetingType='virt' expandAll='false'></app-meeting-list>
+  </div>
+</ion-content>

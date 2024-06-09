@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Na-Italy-3</string>
+    <string name="title_activity_main">Na-Italy-3</string>
+    <string name="package_name">org.naitalia.app</string>
+    <string name="custom_url_scheme">org.naitalia.app</string>
+</resources>

@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{'CONTACT' | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1> {{ 'CONTACT.DETAILS' | translate }} </h1>
+
+  <ion-list *ngFor="let detail of serviceGroupNames">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{detail.name}}</ion-card-title>
+      </ion-card-header>
+      
+      <ion-card-content>
+
+        <div *ngIf="detail.description">
+          <ion-item text-wrap lines="none">
+            <ion-icon name="information-circle" item-left></ion-icon>
+            {{detail.description}}
+          </ion-item>
+        </div>
+
+        <ion-list no-padding>
+          <div *ngIf="detail.url">
+            <ion-item text-wrap lines="none">
+              <ion-icon name="globe" item-left></ion-icon>
+              <ion-button (click)='openLink(detail.url)'>
+                {{detail.url}}
+              </ion-button>
+            </ion-item>
+          </div>
+
+          <div *ngIf="detail.helpline">
+            <ion-item text-wrap lines="none">
+              <ion-icon name="call" item-left></ion-icon>
+              <ion-button (click)='dialNum(detail.helpline)'>
+                {{detail.helpline}}
+              </ion-button>
+            </ion-item>
+          </div>
+
+          <div *ngIf="detail.contact_email">
+            <ion-item text-wrap lines="none">
+              <ion-icon name="mail" item-left></ion-icon>
+              <ion-button (click)='openLink(detail.contact_email)'>
+                {{detail.contact_email}}
+              </ion-button>
+            </ion-item>
+          </div>
+
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <br>
+  <h1> {{ 'CONTACT.APPDETAILS' | translate }} </h1>
+  <br>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>{{ 'CONTACT.APPSOURCE' | translate }}</ion-card-title>
+      <ion-item text-wrap lines="none">
+        <ion-icon name="globe" item-left></ion-icon>
+        <ion-button small (click)='openLink(sourceCodeLink)'>https://github.com</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>{{ 'CONTACT.REPORTBUG' | translate }}</ion-card-title>
+      <ion-item text-wrap lines="none">
+        <ion-icon name="globe" item-left></ion-icon>
+        <ion-button small (click)='openLink(sourceBugs)'>https://github.com</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
+
+</ion-content>

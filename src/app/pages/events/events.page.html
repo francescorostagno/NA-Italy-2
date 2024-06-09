@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{'POSTS' | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngFor="let event of eventsData">
+
+    <ion-card *ngIf="event.description !== '' ">
+  
+      <ion-card-header>
+        <div *ngIf="event.title"><ion-card-title>{{ event.title  }}</ion-card-title></div>
+          <div *ngIf="event.url"><ion-card-subtitle><a href="{{ event.url }}"> {{ event.url }} </a></ion-card-subtitle></div>
+      </ion-card-header>
+  
+      <ion-card-content>
+  
+        <div *ngIf="event.image.url">
+          <ion-img [src]="event.image.url" class="ion-no-padding"></ion-img>
+        </div>
+  
+        <div *ngIf="event.description">
+          <br>
+          <div [innerHTML]="event.description  "></div>
+          <br>
+        </div>
+  
+      </ion-card-content>
+  
+    </ion-card>
+  </div>
+</ion-content>
