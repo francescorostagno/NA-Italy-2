@@ -32,15 +32,17 @@ export class EventsPage implements OnInit {
     this.now = Date.now() / 1000;
 
     const data: HttpResponse = await CapacitorHttp.get({url: this.wordpressApiUrl});
-    
+
     console.log(data);
     const jsonParsed = data;
 
     const eventsObj = jsonParsed.data.events;
     this.eventsData = Object.values(eventsObj);
-    this.eventsData = this.eventsData.filter((event: { end_date: moment.MomentInput; }) => moment(event.end_date).format('X') > this.now);
+    //this.eventsData = this.eventsData.filter((event: { end_date: moment.MomentInput; }) => moment(event.end_date).format('X') > this.now);
     this.eventsData = this.eventsData.filter((event: { title: string; }) => event.title = this.tidyName(event.title));
-    console.log(this.eventsData);
+    this.eventsData = this.eventsData.filter((event: { description: string; }) => event.description !== '');
+    this.eventsData = this.eventsData.filter(( event: { image: any }) => event.image !== false );
+
     this.loadingCtrl.dismiss();
 
   }
