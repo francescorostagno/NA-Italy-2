@@ -34,8 +34,8 @@ export class MeetingListComponent implements OnInit, OnChanges {
   localExpandAll: any;
   dayCount = [0, 0, 0, 0, 0, 0, 0];
   formats: any;
-  formatLanguage = 'en';
-  language = 'english';
+  formatLanguage = 'it';
+  language = 'italian';
   selectedDay = 'Ogni Giorno';
   loader!: Promise<void> | Promise<boolean> | null;
   isLoaded = false;
